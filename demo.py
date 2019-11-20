@@ -10,6 +10,15 @@ iosxeao_netconf = {
 	'password' : 'D_Vay!_10&',
 }
 
+iosxeao_ssh = {
+	'device_type'	: 'cisco_ios',
+	'ip' 			: 'ios-xe-mgmt.cisco.com',
+	'port'			: '8181',
+	'username'		: 'root',
+	'password'		: 'D_Vay!_10&'
+}
+
+
 def main():
 	router1 = {
 		'device_type'	: 'cisco_ios',
@@ -29,6 +38,11 @@ def main():
 	print ("Executing %s" %command)
 	output = r1_con.send_command(command)
 
+
+	# EXECUTE SHOW VERSION COMMAND
+	command = 'show version'
+	print ("Executing %s" %command)
+	output = r1_con.send_command(command)
 
 
 
