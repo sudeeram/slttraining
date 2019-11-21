@@ -2,7 +2,7 @@
 
 # CISCO IOX XE ROUTER AVAILABLE ON CISCO DEVNET LAB
 
-iosxeao_netconf = {
+iosxeao = {
 	'address' : 'ios-xe-mgmt.cisco.com',
 	'netconf_port' : 10000,
 	'restconf_port' : 9443,
@@ -11,41 +11,10 @@ iosxeao_netconf = {
 }
 
 iosxeao_ssh = {
-	'device_type'	: 'cisco_ios',
+	'device_type'	: 'cisco_xe',
 	'ip' 			: 'ios-xe-mgmt.cisco.com',
 	'port'			: '8181',
 	'username'		: 'root',
 	'password'		: 'D_Vay!_10&'
 }
 
-
-def main():
-	router1 = {
-		'device_type'	: 'cisco_ios',
-		'ip' 			: '192.168.160.5',
-		'username'		: 'cisco',
-		'password'		: 'cisco',
-		'secret'		: 'cisco',
-	}
-
-	# SSH INTO ROUTER
-	print ("Connecting to router1 (%s)" % router1["ip"])
-	r1_con = ConnectHandler(**router1)
-	print ("************************")
-
-	# EXECUTE A SHOW IP INTERFACE BRIEF COMMAND
-	command = 'show ip interface brief'
-	print ("Executing %s" %command)
-	output = r1_con.send_command(command)
-
-
-	# EXECUTE SHOW VERSION COMMAND
-	command = 'show version'
-	print ("Executing %s" %command)
-	output = r1_con.send_command(command)
-
-
-
-
-if __name__ == '__main__':
-	main()
